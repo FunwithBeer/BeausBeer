@@ -1,22 +1,29 @@
-// set up beer app
 var app = {};
-
-app.apiKey = 'MDoxNjU2NzBjYy1kOWMyLTExZTUtODBhOS1jMzQ4YTY5Nzc5OTc6QVBsb0RDTzF6dE9FQ0F0UGNYQjBUM3BUb0xyUWFuRW1Mc29I';
-
 app.apiUrl = 'https://lcboapi.com/products';
+app.apiKey = "MDphOGNiOTY1NC1kYjBiLTExZTUtOGMzYi0zNzJlOTg1YmY5YmI6NlZjc0FzREFrUGFNSlB0OWhnWXFBWUFKbDA0OVpPMTJRbDRi";
 
-// get information from LCBO API
-boozeOutput.getInfo = function () {
-	$.ajax ({
-		url: boozeOutput.apiUrl,
-		method: 'GET',
+app.getBeer = function() {
+	$.ajax({
+		url: app.apiUrl,
 		dataType: 'json',
+		method: 'GET',
 		data: {
-			producer_name: 'Beau\'s All Natural Brewing'
+			per_page: 50,
+			access_key: app.apiKey,
+			q: 'beaus'
+			// order: price_in_cents, volume_in_milliliters,alcohol_content
 		}
-	}).then(function(results) {
+	}).then(function(results){
 		console.log(results);
-		boozeOutput.displayBooze(results);
 	})
+	// console.log(data.name)
+};
+
+
+app.init = function() {
+	app.getBeer();
 }
 
+$(function() {
+	app.init();
+});
