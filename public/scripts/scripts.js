@@ -95,11 +95,22 @@ app.displayBeer = function (beerInfo) {
 		var tags = data.tags;
 		var tastingNotes = data.tasting_note;
 		var idNumber = data.id;
+		// var selected = $.each('input[type=radio]').append(beerImage);
+		for (var i = 0; i < beerImage.length; i++) {
+			$('#userBeerSelection').append("<input type='radio' id='myBeer" + "value='" + beerName + "'" + i + "''").append(beerImage, beerName, price, tastingNotes);
+		}
+
+		for (var i = 0; i <= beerImage.length; i++) {
+			$('#userBeerSelection').append("<label for='" + beerName + "'/label").append(beerImage, beerName, price, tastingNotes);
+		}
+
+		// }
 		// console.log(beerName);
 		// console.log(beerImage);
-		var individualBeers = $('<div>').addClass('blurb').append(beerName, beerImage, price);
-		$('#beerResults').append(individualBeers);
+		// var individualBeers = $('<div>').addClass('blurb').append(beerName, beerImage, price);
+		// $('#beerResults').append(individualBeers);
 		// console.log(price);
+		// var details = $('#userBeerSelection').append(namePicPrice);
 		if (data.image_url == null) {
 			$(beerImage).attr('src', './public/images/default_beer.png');
 		}
