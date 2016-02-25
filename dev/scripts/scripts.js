@@ -27,22 +27,22 @@ app.getBeer = function() {
 	// console.log(data.name)
 };
 
-// app.getStores = function() {
-// 	$.ajax({
-// 		url: app.locationApiUrl,
-// 		dataType: 'json',
-// 		method: 'GET',
-// 		data: {
-// 			per_page: 10,
-// 			access_key: app.apiKey,
-// 			// only get stores that stock Beau's
-// 			// product_id: idNumber
-// 		}
-// 	}).then(function(storeOutput) {
-// 		// console.log(storeOutput);
-// 		app.displayStores(storeOutput);
-// 	})
-// }; 
+app.getStores = function() {
+	$.ajax({
+		url: app.locationApiUrl,
+		dataType: 'json',
+		method: 'GET',
+		data: {
+			per_page: 10,
+			access_key: app.apiKey,
+			// only get stores that stock Beau's
+			// product_id: idNumber
+		}
+	}).then(function(storeOutput) {
+		// console.log(storeOutput);
+		app.displayStores(storeOutput);
+	})
+}; 
 
 app.getInventory = function() {
 	$.ajax({
@@ -91,8 +91,8 @@ app.displayBeer = function(beerInfo) {
 		var namePicPrice = $('#beerResults').append(beerName, beerImage, price);
 		// console.log(price);
 		if (data.image_url == null) {
-			$(beerImage).attr('src', 'http://unsplash.it/100/100')
-		}
+			$(beerImage).attr('src', './public/images/default_beer.png');
+		} 
 	});
 }
 
