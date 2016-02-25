@@ -1,16 +1,26 @@
 html, body {
   height: 100vh;
-  max-width: 1360px; }
+  max-width: 1360px;
+  font-size: 62.5%;
+  font-family: 'Open Sans', sans-serif; }
 
-body {
-  background: tomato; }
+.wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 80%; }
+
+h1, h2, h3, h4 {
+  font-family: 'Abril Fatface', cursive; }
+
+img {
+  width: 25%; }
 
 #content {
   width: 85%;
   height: 100%;
   margin: 0 auto; }
 
-#map-canvas {
+#map {
   width: 100%;
   /*height: 100vh;*/
   height: 500px; }

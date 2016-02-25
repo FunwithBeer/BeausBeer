@@ -60,6 +60,14 @@ app.getInventory = function () {
 	});
 };
 
+var map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: { lat: 43.7000, lng: -79.4000 },
+		zoom: 12
+	});
+}
+
 // app.getLocation = function(userLocation) {
 // 	$.ajax({
 // 		url: app.googleMapsApiUrl,
@@ -115,7 +123,7 @@ app.displayStores = function (storeInfo) {
 
 app.init = function () {
 	app.getBeer();
-	// app.getStores();
+	app.getStores();
 	app.getInventory();
 };
 
