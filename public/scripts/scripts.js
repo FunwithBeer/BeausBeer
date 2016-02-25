@@ -97,7 +97,8 @@ app.displayBeer = function (beerInfo) {
 		var idNumber = data.id;
 		// console.log(beerName);
 		// console.log(beerImage);
-		var namePicPrice = $('#beerResults').append(beerName, beerImage, price);
+		var individualBeers = $('<div>').addClass('blurb').append(beerName, beerImage, price);
+		$('#beerResults').append(individualBeers);
 		// console.log(price);
 		if (data.image_url == null) {
 			$(beerImage).attr('src', './public/images/default_beer.png');
@@ -118,6 +119,19 @@ app.displayStores = function (storeInfo) {
 
 		// console.log(storeName);
 		// console.log(storeAddress);
+	});
+};
+
+// get user location based on their current location
+app.getCurrentPosition = function () {
+	// console.log("entered get current pos")
+	navigator.geolocation.getCurrentPosition(function (position) {
+		app.lat = position.coords.latitude;
+		app.lng = position.coords.longitude;
+		app.position = { lat: app.lat, lng: app.lng };
+		// console.log(app.position);
+		// app.findStore();
+		// app.loadMap();
 	});
 };
 
