@@ -1,14 +1,15 @@
+'use strict';
+
 var app = {};
 app.apiUrl = 'https://lcboapi.com/products';
 app.locationApiUrl = 'https://lcboapi.com/stores';
 app.inventoryUrl = 'https://lcboapi.com/inventories';
 app.apiKey = 'MDphOGNiOTY1NC1kYjBiLTExZTUtOGMzYi0zNzJlOTg1YmY5YmI6NlZjc0FzREFrUGFNSlB0OWhnWXFBWUFKbDA0OVpPMTJRbDRi';
 
-app.googleMapsApiUrl = 'https://maps.googleapis.com/maps/api/geocode/json'
-;
+app.googleMapsApiUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
 var idNumber;
 
-app.getBeer = function() {
+app.getBeer = function () {
 	$.ajax({
 		url: app.apiUrl,
 		dataType: 'json',
@@ -16,14 +17,14 @@ app.getBeer = function() {
 		data: {
 			per_page: 50,
 			access_key: app.apiKey,
-			q: 'beaus',
-			// where_not: 'is_discontinued'
-			// order: price_in_cents, volume_in_milliliters,alcohol_content
+			q: 'beaus'
 		}
-	}).then(function(beerOutput){
+	}). // where_not: 'is_discontinued'
+	// order: price_in_cents, volume_in_milliliters,alcohol_content
+	then(function (beerOutput) {
 		// console.log(beerOutput);
 		app.displayBeer(beerOutput);
-	})
+	});
 	// console.log(data.name)
 };
 
@@ -42,9 +43,9 @@ app.getBeer = function() {
 // 		// console.log(storeOutput);
 // 		app.displayStores(storeOutput);
 // 	})
-// }; 
+// };
 
-app.getInventory = function() {
+app.getInventory = function () {
 	$.ajax({
 		url: app.inventoryUrl,
 		dataType: 'json',
@@ -54,9 +55,9 @@ app.getInventory = function() {
 			product_id: 169334,
 			store_id: 10
 		}
-	}).then(function(inventoryOutput) {
-		console.log(inventoryOutput)
-	})
+	}).then(function (inventoryOutput) {
+		console.log(inventoryOutput);
+	});
 };
 
 // app.getLocation = function(userLocation) {
@@ -72,15 +73,15 @@ app.getInventory = function() {
 // 	})
 // };
 
-app.displayBeer = function(beerInfo) {
+app.displayBeer = function (beerInfo) {
 	// console.log(beerInfo);
-	var beerString = beerInfo.result
-	$.each(beerString, function(i, data) {
+	var beerString = beerInfo.result;
+	$.each(beerString, function (i, data) {
 		// console.log(data);
 		var beerName = $('<h2>').text(data.name);
 		var beerImage = $('<img>').attr('src', data.image_url);
 		var packaging = data.package;
-		var price = $('<p>').text("$" + data.price_in_cents/100);
+		var price = $('<p>').text("$" + data.price_in_cents / 100);
 		var category = data.secondary_category;
 		var style = data.style;
 		var tags = data.tags;
@@ -91,15 +92,15 @@ app.displayBeer = function(beerInfo) {
 		var namePicPrice = $('#beerResults').append(beerName, beerImage, price);
 		// console.log(price);
 		if (data.image_url == null) {
-			$(beerImage).attr('src', 'http://unsplash.it/100/100')
+			$(beerImage).attr('src', 'http://unsplash.it/100/100');
 		}
 	});
-}
+};
 
-app.displayStores = function(storeInfo) {
-	var storeString = storeInfo.result
+app.displayStores = function (storeInfo) {
+	var storeString = storeInfo.result;
 	// console.log(storeString);
-	$.each(storeString, function(i, storeData) {
+	$.each(storeString, function (i, storeData) {
 		var storeName = storeData.name;
 		var storeId = storeData.id;
 		var storeAddress = storeData.address_line_1 + storeData.city;
@@ -109,15 +110,15 @@ app.displayStores = function(storeInfo) {
 
 		// console.log(storeName);
 		// console.log(storeAddress);
-	})	
-}
+	});
+};
 
-app.init = function() {
+app.init = function () {
 	app.getBeer();
 	// app.getStores();
 	app.getInventory();
-}
+};
 
-$(function() {
+$(function () {
 	app.init();
 });

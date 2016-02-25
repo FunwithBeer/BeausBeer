@@ -19,7 +19,7 @@ gulp.task('styles', () => {
 
 
 gulp.task('scripts', () => {
-	gulp.src('./dev/scripts/main.js')
+	gulp.src('./dev/scripts/scripts.js')
 	.pipe(babel({
 		presets: ['es2015']
 		}))
@@ -29,14 +29,14 @@ gulp.task('scripts', () => {
 
 gulp.task('browser-sync', () => {
 	browserSync.init({
-		server: './public'
+		server: './'
 		})
 });
 
 gulp.task('watch', () => {
 	gulp.watch('./dev/styles/**/*.scss', ['styles']);
 	gulp.watch('./dev/scripts/*.js', ['scripts']);
-	gulp.watch('./public/*.html', reload);
+	gulp.watch('./*.html', reload);
 	});
 
 gulp.task('default', ['browser-sync', 'styles', 'scripts', 'watch']);
