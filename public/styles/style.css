@@ -9,14 +9,6 @@ html, body {
   margin: 0 auto;
   width: 80%; }
 
-#beerResults {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row; }
-
 h1, h2, h3, h4 {
   font-family: 'Abril Fatface', cursive; }
 
