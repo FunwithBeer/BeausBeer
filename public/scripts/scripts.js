@@ -72,7 +72,7 @@ app.displayBeer = function (beerInfo) {
 		$label.append(beerImage);
 		$userBeerSelection.append($label);
 		$('#beerChoice').append(radioButton, $userBeerSelection, beerDetails);
-		app.getStores(app.productIDs);
+		// app.getStores(app.productIDs);
 	});
 };
 // I wasn't able to use the variable name in my form stuff, but why?
@@ -99,7 +99,7 @@ app.getStores = function () {
 		}
 	}).then(function (storeOutput) {
 		console.log(storeOutput);
-		// app.displayStores(storeOutput);
+		app.displayStores(storeOutput);
 	});
 };
 
@@ -113,7 +113,13 @@ app.displayStores = function (storeInfo) {
 		var storePhone = storeData.telephone;
 		var lat = storeData.latitude;
 		var lng = storeData.longitude;
-
+		var marker = new google.maps.Marker({
+			map: map,
+			position: {
+				lat: storeData.latitude,
+				lng: storeData.longitude
+			}
+		});
 		// console.log(storeName);
 		// console.log(storeAddress);
 	});
@@ -152,7 +158,6 @@ app.getCurrentPosition = function () {
 		// app.loadMap();
 		var coordinates = new google.maps.LatLng(app.lat, app.lng);
 		var infoWindow = new google.maps.InfoWindow({ map: map });
-		app.getStores(app.lat, app.lng);
 		infoWindow.setPosition(coordinates);
 		infoWindow.setContent('You are here!');
 		map.setCenter(coordinates);
@@ -172,7 +177,7 @@ app.init = function () {
 		e.preventDefault();
 		app.beerSelected = $('input[name=beer]:checked').val();
 		console.log(app.beerSelected);
-		app.getStores(app.beerSelected);
+		app.getStores();
 		// app.productID = [];
 		// We need to grab the product ID Number on submit and push it into our app.productID
 		// for (i = 0; i < store)
