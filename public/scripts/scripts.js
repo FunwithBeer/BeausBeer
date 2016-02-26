@@ -3,7 +3,7 @@
 var app = {};
 app.apiUrl = 'https://lcboapi.com/products';
 app.locationApiUrl = 'https://lcboapi.com/stores';
-// app.inventoryUrl = 'https://lcboapi.com/inventories';
+app.inventoryUrl = 'https://lcboapi.com/inventories';
 app.apiKey = 'MDphOGNiOTY1NC1kYjBiLTExZTUtOGMzYi0zNzJlOTg1YmY5YmI6NlZjc0FzREFrUGFNSlB0OWhnWXFBWUFKbDA0OVpPMTJRbDRi';
 
 app.googleMapsApiUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
@@ -43,8 +43,10 @@ app.displayBeer = function (beerInfo) {
 	$.each(beerString, function (i, value) {
 		var beerName = $('<h2>').text(value.name);
 		if (value.image_url === null) {
-			$(beerImage).attr('src', './public/images/default_beer.png');
+			console.log('null', value);
+			var beerImage = $('<img>').attr('src', '/public/images/default_beer.png');
 		} else {
+
 			var beerImage = $('<img>').attr('src', value.image_url);
 		};
 		var packaging = $('<p>').text(value.package);
@@ -54,7 +56,7 @@ app.displayBeer = function (beerInfo) {
 			var style = $('<p>').text(value.style);
 			// $('<p>').text("N/A");
 		} else {
-				$('<p>').text('N/A');
+				$('<p>').text('Delicious!');
 				// var style = $('<p>').text(value.style);
 			};
 		// var tags = value.tags;
@@ -66,8 +68,12 @@ app.displayBeer = function (beerInfo) {
 		app.productIDs = value.id;
 		var beerDetails = $('<div>').append(beerName, packaging, price, tastingNotes, style);
 		var radioButton = $('<div><input name="beer" class="radios" type=\'radio\' value="' + value.name + '">');
-		var userBeerSelection = $('<div><label class="labels" for="' + value.name + '">' + '<img src="' + value.image_url + '">' + '</label></div>');
-		$('#beerChoice').append(radioButton, userBeerSelection, beerDetails);
+
+		var $userBeerSelection = $('<div>');
+		var $label = $('<label>').addClass('labels').attr('for', value.name);
+		$label.append(beerImage);
+		$userBeerSelection.append($label);
+		$('#beerChoice').append(radioButton, $userBeerSelection, beerDetails);
 	});
 };
 // I wasn't able to use the variable name in my form stuff, but why?
@@ -164,8 +170,7 @@ app.getCurrentPosition = function () {
 
 app.init = function () {
 	app.getBeer();
-	app.getStores();
-	app.getInventory();
+	// app.getInventory();
 	app.getCurrentPosition();
 };
 
@@ -251,23 +256,21 @@ $(function () {
 // 	})
 // };
 
-// app.getInventory = function() {
-// 	$.ajax({
-// 		url: app.inventoryUrl,
-// 		dataType: 'json',
-// 		method: 'GET',
-// 		data: {
-// 			access_key: app.apiKey,
-// 			product_id: 169334,
-// 			store_id: 10
-// 		}
-// 	}).then(function(inventoryOutput) {
-// 		console.log(inventoryOutput);
-// 		for (item in beerInfo.result) {
-
-// 		}
-// 	})
-// };
+app.getInventory = function () {
+	$.ajax({
+		url: app.inventoryUrl,
+		dataType: 'json',
+		method: 'GET',
+		data: {
+			access_key: app.apiKey,
+			product_id: 169334,
+			store_id: 10
+		}
+	}).then(function (inventoryOutput) {
+		console.log(inventoryOutput);
+		for (item in beerInfo.result) {}
+	});
+};
 
 // app.displayBeer = function(beerInfo) {
 // 	// console.log(beerInfo);
