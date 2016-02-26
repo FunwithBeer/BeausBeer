@@ -166,6 +166,7 @@ app.init = function () {
 	app.getBeer();
 	app.getStores();
 	app.getInventory();
+	app.getCurrentPosition();
 };
 
 $(function () {
