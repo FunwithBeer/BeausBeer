@@ -62,7 +62,7 @@ app.getInventory = function() {
 var map;
 function initMap() {
 	map = new google.maps.Map(document.getElementById( 'map' ), {
-		center: {lat: 43.7000, lng: -79.4000},
+			center: {lat: 43.7000, lng: -79.4000},
 	    	zoom: 12
 	});
 }
@@ -139,16 +139,27 @@ app.getCurrentPosition = function(){
         app.lat = position.coords.latitude;
         app.lng = position.coords.longitude;
         app.position = {lat : app.lat, lng : app.lng};
-        // console.log(app.position);
+        console.log(app.position);
         // app.findStore();
         // app.loadMap();
-    })
+       	var coordinates = new google.maps.LatLng(app.lat, app.lng);
+       	var infoWindow = new google.maps.InfoWindow({map: map});
+       	infoWindow.setPosition(coordinates);
+        infoWindow.setContent('You are here!');
+        map.setCenter(coordinates);
+    	// var marker = new google.maps.Marker({
+    	// position: coordinates,
+    	// map: map,
+    	// title:"You are here!"
+  		// });
+    });
 }
 
 app.init = function() {
 	app.getBeer();
 	app.getStores();
 	app.getInventory();
+	app.getCurrentPosition();
 }
 
 $(function() {
