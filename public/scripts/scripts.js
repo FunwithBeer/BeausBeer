@@ -22,7 +22,7 @@ app.getBeer = function () {
 			order: 'price_in_cents.asc'
 		}
 	}).then(function (beerOutput) {
-		console.log(beerOutput);
+		// console.log(beerOutput);
 		app.displayBeer(beerOutput);
 		// for (item in data.result) {
 		// 	// console.log(data.result[item].producer_name);
@@ -43,7 +43,7 @@ app.displayBeer = function (beerInfo) {
 	$.each(beerString, function (i, value) {
 		var beerName = $('<h2>').text(value.name);
 		if (value.image_url === null) {
-			console.log('null', value);
+			// console.log('null', value);
 			var beerImage = $('<img>').attr('src', '/public/images/default_beer.png');
 		} else {
 
@@ -68,12 +68,12 @@ app.displayBeer = function (beerInfo) {
 		app.productIDs = value.id;
 		var beerDetails = $('<div>').append(beerName, packaging, price, tastingNotes, style);
 		var radioButton = $('<div><input name="beer" class="radios" type=\'radio\' value="' + value.name + '">');
-
 		var $userBeerSelection = $('<div>');
 		var $label = $('<label>').addClass('labels').attr('for', value.name);
 		$label.append(beerImage);
 		$userBeerSelection.append($label);
 		$('#beerChoice').append(radioButton, $userBeerSelection, beerDetails);
+		app.getStores(app.productIDs);
 	});
 };
 // I wasn't able to use the variable name in my form stuff, but why?
@@ -92,19 +92,22 @@ app.formInput = function () {
 
 app.getStores = function () {
 	$.ajax({
-		url: 'https://lcboapi.com/stores?product_id=' + app.productID,
-		dataType: 'json',
+		// url: 'https://lcboapi.com/stores?product_id=' + app.productID,
+		url: app.locationApiUrl,
+		dataType: 'jsonp',
 		method: 'GET',
 		data: {
 			per_page: 10,
 			access_key: app.apiKey,
-			order: 'distance_in_meters'
+			// order: 'distance_in_meters',
+			lat: app.lat,
+			lon: app.lng,
 			// only get stores that stock Beau's
-			// product_id: idNumber
+			product_id: app.productIDs
 		}
 	}).then(function (storeOutput) {
-		// console.log(storeOutput);
-		app.displayStores(storeOutput);
+		console.log(storeOutput);
+		// app.displayStores(storeOutput);
 	});
 };
 
@@ -152,11 +155,12 @@ app.getCurrentPosition = function () {
 		app.lat = position.coords.latitude;
 		app.lng = position.coords.longitude;
 		app.position = { lat: app.lat, lng: app.lng };
-		console.log(app.position);
+		// console.log(app.position);
 		// app.findStore();
 		// app.loadMap();
 		var coordinates = new google.maps.LatLng(app.lat, app.lng);
 		var infoWindow = new google.maps.InfoWindow({ map: map });
+		app.getStores(app.lat, app.lng);
 		infoWindow.setPosition(coordinates);
 		infoWindow.setContent('You are here!');
 		map.setCenter(coordinates);
@@ -267,7 +271,7 @@ app.getInventory = function () {
 			store_id: 10
 		}
 	}).then(function (inventoryOutput) {
-		console.log(inventoryOutput);
+		// console.log(inventoryOutput);
 		for (item in beerInfo.result) {}
 	});
 };
