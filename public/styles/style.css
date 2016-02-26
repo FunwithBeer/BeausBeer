@@ -58,9 +58,6 @@ img {
   max-width: 200px;
   max-height: 150px; }
 
-.radios {
-  display: none; }
-
 input[type=radio]:checked + label {
   border: 5px solid tomato; }
 
