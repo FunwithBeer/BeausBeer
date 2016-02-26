@@ -1,6 +1,4 @@
 html, body { 
-    height: 100vh; 
-    max-width: 1360px;
     font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
 }
@@ -40,7 +38,6 @@ img{
 }
 
 form {
-  height: 100vh;
 }
 
 .formWrapper {
@@ -57,7 +54,6 @@ form {
 
 .beerChoice {
   width: 50%;
-  height: 300px;
 }
 
 .labels {
@@ -72,7 +68,7 @@ form {
   border: 5px solid black;
 }
 
-img {
+.beerChoice img {
   max-width: 200px;
   max-height: 150px;
 }

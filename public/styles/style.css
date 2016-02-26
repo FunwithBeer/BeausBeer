@@ -1,6 +1,4 @@
 html, body {
-  height: 100vh;
-  max-width: 1360px;
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif; }
 
@@ -26,9 +24,6 @@ img {
   /*height: 100vh;*/
   height: 500px; }
 
-form {
-  height: 100vh; }
-
 .formWrapper {
   position: relative; }
 
@@ -38,8 +33,7 @@ form {
   padding: 0; }
 
 .beerChoice {
-  width: 50%;
-  height: 300px; }
+  width: 50%; }
 
 .labels {
   display: -webkit-flex;
@@ -60,7 +54,7 @@ form {
   cursor: pointer;
   border: 5px solid black; }
 
-img {
+.beerChoice img {
   max-width: 200px;
   max-height: 150px; }
 
