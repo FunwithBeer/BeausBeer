@@ -9,44 +9,52 @@
 </head>
 <body>
 	
-	<!-- beginning of header section -->
-	<section class="header">
-		<div class="wrapper">
-			<h1>Beau's Beers Selector App</h1>
+	<div class="wrapper">
+		<!-- beginning of header section -->
+			<section class="header">
+				<div class="wrapper">
+					<h1>Beau's Beers Selector App</h1>
+				</div>
+			</section>
+			<!-- end of header section -->
+			
+			<!-- beginning of beer results section -->
+			<section class="beerGallery">
+				<div class="wrapper">
+					<!-- <div id="beerResults"></div> -->
+					<div class="beerResults">
+						<form action="" id="userBeerSelection">
+							<div class="formWrapper">
+								<div class="beerChoiceWrapper">
+									<div class="beerChoice" id="beerChoice"></div>
+								</div>
+								<div class="submitButton">
+									<input type="submit" value="Get your booze!">
+								</div> <!-- END OF SUBMIT BUTTON -->
+						</div> <!-- END OF FORM WRAPPER -->
+					</form>
+				</div>
+			</section>
+			<!-- end of beer results section -->
+			
+			<!-- beginning of map and store list section -->
+			<section class="mapAndList">
+				<div class="wrapper">
+					<div id="map"></div>
+				</div>
+			</section>
+			<!-- end of map and store list section -->
+			
+			<!-- beginning of footer section -->
+			<section class="footer">
+				<div class="wrapper">
+					<p> Designed and Built by: <a href="" target="blank">Clare Prowse</a>, <a href="" target="blank">Michelle Chung</a> <a href="http://samaraljumaa.com" target="blank">Samar Aljumaa</a></p>
+					<p>Application built using <a href="https://lcboapi.com/">LCBO</a> Api, and <a href="https://maps.google.ca/
+					">Google Maps</a> Api.</p>
+				</div>
+			</section>
+			<!-- end of footer section -->
 		</div>
-	</section>
-	<!-- end of header section -->
-
-	<!-- beginning of beer results section -->
-	<section class="beerGallery">
-		<div class="wrapper">
-			<!-- <div id="beerResults"></div> -->
-			<div class="beerResults">
-				<form action="" id="userBeerSelection">
-					<!-- <input type="radio" name="" id="" value=""> -->
-				</form>
-			</div>
-		</div>
-	</section>
-	<!-- end of beer results section -->
-
-	<!-- beginning of map and store list section -->
-	<section class="mapAndList">
-		<div class="wrapper">
-			<div id="map"></div>
-		</div>
-	</section>
-	<!-- end of map and store list section -->
-
-	<!-- beginning of footer section -->
-	<section class="footer">
-		<div class="wrapper">
-			<p> Designed and Built by: <a href="" target="blank">Clare Prowse</a>, <a href="" target="blank">Michelle Chung</a> <a href="http://samaraljumaa.com" target="blank">Samar Aljumaa</a></p>
-			<p>Application built using <a href="https://lcboapi.com/">LCBO</a> Api, and <a href="https://maps.google.ca/
-			">Google Maps</a> Api.</p>
-		</div>
-	</section>
-	<!-- end of footer section -->
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -56,7 +64,7 @@
 	<script async defer 
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDje3zvGCqffO4ibhM_8GMft9l4x0gUHEY&callback=initMap">
 	</script>
-	
+
 	
 </body>
 </html>	
