@@ -1,3 +1,6 @@
+$slateblue: #A6BABB;
+$fatface: 'Abril Fatface', cursive;
+
 html, body { 
     font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
@@ -20,6 +23,48 @@ body {
 
 h1, h2, h3, h4{
 	font-family: 'Abril Fatface', cursive;
+}
+
+header {
+  padding: 0;
+  margin: 0;
+  background-image: url(/public/images/barrel.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  filter: FlipH;
+  height: 100vh;
+  }
+
+.headline {
+  padding-top: 52rem;
+  position: relative;
+  .titleLine {
+    position: absolute;
+    bottom: 2rem;
+    left: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    vertical-align: bottom;
+  .wheat {
+    width: 16%;
+    padding-right: 2rem;
+    padding-top: 2.8rem;
+  }
+  h1 {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: $fatface;
+    font-size: 8rem;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+  }
+  }
+  div.divLine {
+    height: 6rem;
+    background-color: $slateblue;
+  }
 }
 
 // img{
