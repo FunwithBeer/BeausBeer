@@ -68,7 +68,7 @@ app.displayBeer = function(beerInfo) {
 		var radioButton = $('<input name="beer" class="radios" type=\'radio\' value="' + value.id + '" id="' + value.id + '">');
 		var $userBeerSelection = $('<div class="userSelection">');
 		var $label = $('<label>').addClass('labels').attr('for',value.id);
-		$labsel.append(beerImage);
+		$label.append(beerImage);
 		$userBeerSelection.append(radioButton, $label, beerDetails);
 		$('#beerChoice').append($userBeerSelection);
 		// $('#beerChoice input[type=radio]:checked').each(function(){
