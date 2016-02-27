@@ -8,8 +8,13 @@ html, body {
     font-size: 62.5%;
     font-family: 'Open Sans', sans-serif;
 }
+
 body {
     // background: tomato;
+}
+
+img {
+  max-width: 100%;
 }
 
 .wrapper{
@@ -75,11 +80,9 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding: 10rem 2rem;
-  img {
-    width: 75%;
-  }
-  .infoDiv {
-    padding-right: 8rem;
+  .beerIntroInfoDiv {
+    width: 60%;
+    padding-top: 4rem;
     h2 {
       color: $indianTan;
       font-size: 4rem;
@@ -89,7 +92,12 @@ header {
       padding-right: 6rem;
     }
   }
+  .beerIntroImageDiv {
+    margin-left: 2rem;
+  }
 }
+
+
 
 .beerGallery {
   h3 {
@@ -98,9 +106,16 @@ header {
     }
 }
 
-.beerResults {
+.beerChoice {
+  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
+  // flex-direction: row;
+  justify-content: space-between;
+  .userSelection {
+    width: 25%;
+    text-align: center;
+  }
 }
 
 // img{
