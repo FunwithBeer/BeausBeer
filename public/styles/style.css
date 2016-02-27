@@ -2,6 +2,9 @@ html, body {
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif; }
 
+img {
+  max-width: 100%; }
+
 .wrapper {
   position: relative;
   max-width: 1080px;
@@ -63,28 +66,36 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 10rem 2rem; }
-  .beerIntro img {
-    width: 75%; }
-  .beerIntro .infoDiv {
-    padding-right: 8rem; }
-    .beerIntro .infoDiv h2 {
+  .beerIntro .beerIntroInfoDiv {
+    width: 60%;
+    padding-top: 4rem; }
+    .beerIntro .beerIntroInfoDiv h2 {
       color: #532C19;
       font-size: 4rem; }
-    .beerIntro .infoDiv p {
+    .beerIntro .beerIntroInfoDiv p {
       font-size: 1.8rem;
       padding-right: 6rem; }
+  .beerIntro .beerIntroImageDiv {
+    margin-left: 2rem; }
 
 .beerGallery h3 {
   color: #532C19;
   font-size: 2.6rem; }
 
-.beerResults {
+.beerChoice {
+  width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row; }
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .beerChoice .userSelection {
+    width: 25%;
+    text-align: center; }
 
 #content {
   width: 85%;
