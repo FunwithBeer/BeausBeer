@@ -65,13 +65,16 @@ app.displayBeer = function (beerInfo) {
 			var tastingNotes = $('<p>').text(value.tasting_note);
 		};
 		app.productIDs = value.id;
-		var beerDetails = $('<div>').append(beerName, packaging, price, tastingNotes, style);
-		var radioButton = $('<div><input name="beer" class="radios" type=\'radio\' value="' + value.id + '">');
-		var $userBeerSelection = $('<div>');
+		var beerDetails = $('<div class="beerDetails">').append(beerName, packaging, price, tastingNotes, style);
+		var radioButton = $('<input name="beer" class="radios" type=\'radio\' value="' + value.id + '" id="' + value.id + '">');
+		var $userBeerSelection = $('<div class="userSelection">');
 		var $label = $('<label>').addClass('labels').attr('for', value.id);
 		$label.append(beerImage);
-		$userBeerSelection.append($label);
-		$('#beerChoice').append(radioButton, $userBeerSelection, beerDetails);
+		$userBeerSelection.append(radioButton, $label);
+		$('#beerChoice').append($userBeerSelection, beerDetails);
+		// $('#beerChoice input[type=radio]:checked').each(function(){
+		// 	$('#beerChoice label[for="' + value.id + '"]').css('border', 'solid 5px tomato');
+		// })
 		// app.getStores(app.productIDs);
 	});
 };
@@ -110,14 +113,22 @@ app.displayStores = function (storeInfo) {
 		var storePhone = $('<p>').text(storeData.telephone);
 		var lat = storeData.latitude;
 		var lng = storeData.longitude;
-		$('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
+		var storeDetails = $('<div>').append(storeName, storeAddress, storePhone);
+		$('#storeResults').append(storeDetails);
+		// $('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone)
 		// $('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
 		var marker = new google.maps.Marker({
 			map: map,
 			position: {
 				lat: storeData.latitude,
 				lng: storeData.longitude
-			}
+			},
+			animation: google.maps.Animation.DROP
+		});
+		var infowindow = new google.maps.InfoWindow();
+		google.maps.event.addListener(marker, 'click', function () {
+			infowindow.setContent(storeData.name);
+			infowindow.open(map, this);
 		});
 		// console.log(storeName);
 		// console.log(storeAddress);
@@ -143,15 +154,16 @@ app.getCurrentPosition = function () {
 		// app.findStore();
 		// app.loadMap();
 		var coordinates = new google.maps.LatLng(app.lat, app.lng);
+		var marker = new google.maps.Marker({
+			position: coordinates,
+			map: map,
+			animation: google.maps.Animation.BOUNCE
+		});
 		var infoWindow = new google.maps.InfoWindow({ map: map });
 		infoWindow.setPosition(coordinates);
 		infoWindow.setContent('You are here!');
+		infoWindow.open(marker.get('map'), marker);
 		map.setCenter(coordinates);
-		// var marker = new google.maps.Marker({
-		// position: coordinates,
-		// map: map,
-		// title:"You are here!"
-		// });
 	});
 };
 
@@ -162,6 +174,10 @@ app.init = function () {
 	$('#userBeerSelection').on('submit', function (e) {
 		e.preventDefault();
 		app.beerSelected = $('input[name=beer]:checked').val();
+		// $('#beerChoice input[type="radio"]:checked').each(function(){
+		// 	$('#beerChoice label[for="' + this.id + '"]').css('border', 'solid 5px steelblue');
+		// });
+
 		console.log(app.beerSelected);
 		app.getStores();
 		// app.productID = [];
