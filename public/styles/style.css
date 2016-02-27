@@ -58,7 +58,7 @@ h1, h2, h3, h4 {
 .radios {
   display: none; }
 
-input[type=radio]:checked + label img {
+input[type=radio]:checked + label {
   border: 5px solid tomato; }
 
 .submitButton {

@@ -111,7 +111,7 @@ app.displayStores = function (storeInfo) {
 		var lat = storeData.latitude;
 		var lng = storeData.longitude;
 		$('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
-		$('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
+		// $('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
 		var marker = new google.maps.Marker({
 			map: map,
 			position: {

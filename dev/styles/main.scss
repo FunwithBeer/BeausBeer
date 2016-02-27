@@ -77,7 +77,7 @@ form {
   display: none;
 }
 
-input[type=radio]:checked + label img {
+input[type=radio]:checked + label {
   border: 5px solid tomato;
 }
 
