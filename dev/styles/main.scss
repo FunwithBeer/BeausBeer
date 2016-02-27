@@ -97,12 +97,21 @@ header {
   }
 }
 
-
+.keyHole {
+  padding: 0;
+  margin: 0;
+  background-image: url(/public/images/barrel.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 10rem;
+}
 
 .beerGallery {
+  padding-top: 4rem;
   h3 {
       color: $indianTan;
       font-size: 2.6rem;
+      padding-bottom: 3rem;
     }
 }
 
@@ -113,9 +122,14 @@ header {
   // flex-direction: row;
   justify-content: space-between;
   .userSelection {
+    padding: 3%;
     width: 25%;
     text-align: center;
   }
+}
+
+.beerDetails h2 {
+  font-size: 1.5rem;
 }
 
 // img{
@@ -203,13 +217,44 @@ input[type=radio]:checked + label {
   }
 }
 
-div.mapAndListWrapper {
+.mapAndListwrapper {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   .storeResults {
-    width: 50%;
+    width: 30%;
   }
   .mapWrapper {
-    width: 50%;
+    width: 70%;
   }
+}
+
+footer {
+  margin-top: 3rem;
+  background-color: $casper;
+  padding: 2rem 0 3rem;
+  p, a {
+    font-size: 1.2rem;
+    margin: 0;
+    color: white;
+    &:visited {
+      color: white;
+    }
+  }
+}
+
+.socialContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 14%;
+  i.fa {
+    font-size: 3rem;
+  }
+}
+
+.footerInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

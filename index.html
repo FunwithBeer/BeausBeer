@@ -26,69 +26,73 @@
 	<!-- end of header section -->
 	<div class="wrapper">
 	<!-- beer intro section -->
-	<section class="beerIntro">
-		<div class="beerIntroInfoDiv">
-			<h2>A Beer for Every Pallette</h2>
-			<p>At Beau’s we pride ourselves on innovation. Since 2006, our dedication to trying out new and diverse recipes has led to the creation of a varied family of beers, one that has a beer for any pallette.</p>
-		</div>
-		<div class="beerIntroImageDiv">
-			<img src="../public/images/flight_circle.png" alt="">
-		</div>
-	</section>
+		<section class="beerIntro">
+			<div class="beerIntroInfoDiv">
+				<h2>A Beer for Every Pallette</h2>
+				<p>At Beau’s we pride ourselves on innovation. Since 2006, our dedication to trying out new and diverse recipes has led to the creation of a varied family of beers, one that has a beer for any pallette.</p>
+			</div>
+			<div class="beerIntroImageDiv">
+				<img src="../public/images/flight_circle.png" alt="">
+			</div>
+		</section>
 	</div>
 
+	<div class="keyHole"></div>
+
+	<div class="wrapper">
+		<!-- beginning of beer results section -->
+		<section class="beerGallery">
+			<h3>Choose a Beer to find the closest LCBO you can grab it from!</h3>
 			<div class="wrapper">
-			<!-- beginning of beer results section -->
-			<section class="beerGallery">
-				<h3>Choose a Beer to find the closest LCBO you can grab it from!</h3>
-				<div class="wrapper">
-					<!-- <div id="beerResults"></div> -->
-					<div class="beerResults">
-						<form action="" id="userBeerSelection">
-							<div class="formWrapper">
-								<div class="beerChoiceWrapper">
-									<div class="beerChoice" id="beerChoice"></div>
-								</div>
-								<div class="submitButton">
-									<input type="submit" value="Get your booze!">
-								</div> <!-- END OF SUBMIT BUTTON -->
-							</div> <!-- END OF FORM WRAPPER -->
-						</form>
-					</div>
+				<!-- <div id="beerResults"></div> -->
+				<div class="beerResults">
+					<form action="" id="userBeerSelection">
+						<div class="formWrapper">
+							<div class="beerChoiceWrapper">
+								<div class="beerChoice" id="beerChoice"></div>
+							</div>
+							<div class="submitButton">
+								<input type="submit" value="Get your booze!">
+							</div> <!-- END OF SUBMIT BUTTON -->
+						</div> <!-- END OF FORM WRAPPER -->
+					</form>
 				</div>
-			</section>
-			<!-- end of beer results section -->
+			</div>
+		</section>
+		<!-- end of beer results section -->
 
 
-			
-			<!-- beginning of map and store list section -->
-			<section class="mapAndList">
-				<div class="mapAndListwrapper">
-					<div id="storeResults" class="storeResults"></div>
-					<div class="mapWrapper">
-						<div id="map"></div>
-					</div>
+		
+		<!-- beginning of map and store list section -->
+		<section class="mapAndList">
+			<div class="mapAndListwrapper">
+				<div id="storeResults" class="storeResults"></div>
+				<div class="mapWrapper">
+					<div id="map"></div>
 				</div>
-			</section>
-			<!-- end of map and store list section -->
-			
-			<!-- beginning of footer section -->
-			<section class="footer">
-				<div class="wrapper">
-					<p> Designed and Built by: <a href="http://www.clareprowse.com" target="">Clare Prowse</a>, <a href="http://www.michellecodes.ca" target="">Michelle Chung</a> <a href="http://samaraljumaa.com" target="blank">Samar Aljumaa</a></p>
-					<span>
+			</div>
+		</section>
+		<!-- end of map and store list section -->
+	</div>
+		<!-- beginning of footer section -->
+	<footer id="footer">
+		<div class="wrapper">
+			<div class="footerInfo">
+				<div class="devCredits">
+					<p>Design and development by: <a href="http://www.clareprowse.com" target="">Clare Prowse</a>, <a href="http://www.michellecodes.ca" target="">Michelle Chung</a>, and <a href="http://samaraljumaa.com" target="blank">Samar Aljumaa</a></p>
+					<p>Application built using <a href="https://lcboapi.com/">LCBO</a> Api, and <a href="https://maps.google.ca/
+					">Google Maps</a> API.</p>
+				</div>
+				<div class="socialContainer">
 					<a href="https://facebook.com/BeausBrewery" title="Facebook"><i class="fa fa-facebook-square"></i></a>
 					<a href="https://twitter.com/beausallnatural" title="Twitter"><i class="fa fa-twitter-square"></i></a>
-				<a href="https://instagram.com/beausallnatural/" title="Instagram"><i class="fa fa-instagram"></i></a>
-				<a href="https://vimeo.com/beaus" title="Vimeo"><i class="fa fa-vimeo-square"></i></a>
-				</span>
-					<p>Application built using <a href="https://lcboapi.com/">LCBO</a> Api, and <a href="https://maps.google.ca/
-					">Google Maps</a> Api.</p>
+					<a href="https://instagram.com/beausallnatural/" title="Instagram"><i class="fa fa-instagram"></i></a>
+					<a href="https://vimeo.com/beaus" title="Vimeo"><i class="fa fa-vimeo-square"></i></a>
 				</div>
-			</section>
-			<!-- end of footer section -->
-		</div> <!-- end of main warper-->
-
+			</div>
+		</div>
+	</footer>
+		<!-- end of footer section -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="./public/scripts/scripts.js"></script>
