@@ -11,9 +11,6 @@ html, body {
 h1, h2, h3, h4 {
   font-family: 'Abril Fatface', cursive; }
 
-img {
-  width: 25%; }
-
 #content {
   width: 85%;
   height: 100%;
@@ -58,7 +55,10 @@ img {
   max-width: 200px;
   max-height: 150px; }
 
-input[type=radio]:checked + label {
+.radios {
+  display: none; }
+
+input[type=radio]:checked + label img {
   border: 5px solid tomato; }
 
 .submitButton {
@@ -85,6 +85,18 @@ input[type=radio]:checked + label {
     .submitButton input[type=submit]:hover {
       background: white;
       color: tomato; }
+
+div.mapAndListWrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+  div.mapAndListWrapper .storeResults {
+    width: 50%; }
+  div.mapAndListWrapper .mapWrapper {
+    width: 50%; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }

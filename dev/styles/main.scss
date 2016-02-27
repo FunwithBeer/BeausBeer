@@ -22,9 +22,9 @@ h1, h2, h3, h4{
 	font-family: 'Abril Fatface', cursive;
 }
 
-img{
-	width: 25%;
-}
+// img{
+// 	width: 25%;
+// }
 
 #content {
   width: 85%;
@@ -74,12 +74,11 @@ form {
 }
 
 .radios {
-  // display: none;
+  display: none;
 }
 
-input[type=radio]:checked + label {
+input[type=radio]:checked + label img {
   border: 5px solid tomato;
-
 }
 
 .submitButton {
@@ -105,5 +104,16 @@ input[type=radio]:checked + label {
       background: white;
       color: tomato;
     }
+  }
+}
+
+div.mapAndListWrapper {
+  display: flex;
+  flex-direction: row;
+  .storeResults {
+    width: 50%;
+  }
+  .mapWrapper {
+    width: 50%;
   }
 }

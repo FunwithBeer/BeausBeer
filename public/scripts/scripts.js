@@ -17,7 +17,7 @@ app.getBeer = function () {
 		data: {
 			per_page: 50,
 			access_key: app.apiKey,
-			q: 'beaus',
+			q: 'Beau\'s All Natural Brewing',
 			where_not: 'is_dead',
 			order: 'price_in_cents.asc'
 		}
@@ -77,23 +77,20 @@ app.displayBeer = function (beerInfo) {
 };
 // I wasn't able to use the variable name in my form stuff, but why?
 // If statements are not working, so n/a image won't show.
-// Also, push the productIDs into an empty array?
-
-// app.formInput = function() {
-// }
+// Apparently, the way I appended my image to the label was overwriting my if statement, so Ryan
 
 app.getStores = function () {
 	$.ajax({
-		// url: 'https://lcboapi.com/stores?product_id=' + app.productID,
 		url: app.locationApiUrl,
 		dataType: 'jsonp',
 		method: 'GET',
 		data: {
 			per_page: 10,
 			access_key: app.apiKey,
-			// order: 'distance_in_meters',
 			lat: app.lat,
 			lon: app.lng,
+			order: 'distance_in_meters',
+			where_not: 'is_dead',
 			// only get stores that stock Beau's
 			product_id: app.beerSelected
 		}
@@ -107,12 +104,14 @@ app.displayStores = function (storeInfo) {
 	var storeString = storeInfo.result;
 	// console.log(storeString);
 	$.each(storeString, function (i, storeData) {
-		var storeName = storeData.name;
-		var storeId = storeData.id;
-		var storeAddress = storeData.address_line_1 + storeData.city;
-		var storePhone = storeData.telephone;
+		var storeName = $('<h2>').text(storeData.name);
+		var storeId = $('<p>').text(storeData.id);
+		var storeAddress = $('<p>').text(storeData.address_line_1 + storeData.city);
+		var storePhone = $('<p>').text(storeData.telephone);
 		var lat = storeData.latitude;
 		var lng = storeData.longitude;
+		$('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
+		$('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
 		var marker = new google.maps.Marker({
 			map: map,
 			position: {
@@ -132,19 +131,6 @@ function initMap() {
 		zoom: 12
 	});
 }
-
-// app.getLocation = function(userLocation) {
-// 	$.ajax({
-// 		url: app.googleMapsApiUrl,
-// 		dataType: 'json',
-// 		method: 'GET',
-// 		data: {
-// 			address: userLocation
-// 		}
-// 	}).then(function(showMap) {
-// 		var locationMarker = new google.maps.
-// 	})
-// };
 
 // get user location based on their current location
 app.getCurrentPosition = function () {
@@ -188,18 +174,20 @@ $(function () {
 	app.init();
 });
 
-app.getInventory = function () {
-	$.ajax({
-		url: app.inventoryUrl,
-		dataType: 'json',
-		method: 'GET',
-		data: {
-			access_key: app.apiKey,
-			product_id: 169334,
-			store_id: 10
-		}
-	}).then(function (inventoryOutput) {
-		// console.log(inventoryOutput);
-		for (item in beerInfo.result) {}
-	});
-};
+// app.getInventory = function() {
+// 	$.ajax({
+// 		url: app.inventoryUrl,
+// 		dataType: 'json',
+// 		method: 'GET',
+// 		data: {
+// 			access_key: app.apiKey,
+// 			product_id: 169334,
+// 			store_id: 10
+// 		}
+// 	}).then(function(inventoryOutput) {
+// 		// console.log(inventoryOutput);
+// 		for (item in beerInfo.result) {
+
+// 		}
+// 	})
+// };
