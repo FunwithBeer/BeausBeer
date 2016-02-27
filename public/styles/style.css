@@ -78,9 +78,20 @@ header {
   .beerIntro .beerIntroImageDiv {
     margin-left: 2rem; }
 
-.beerGallery h3 {
-  color: #532C19;
-  font-size: 2.6rem; }
+.keyHole {
+  padding: 0;
+  margin: 0;
+  background-image: url(/public/images/barrel.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 10rem; }
+
+.beerGallery {
+  padding-top: 4rem; }
+  .beerGallery h3 {
+    color: #532C19;
+    font-size: 2.6rem;
+    padding-bottom: 3rem; }
 
 .beerChoice {
   width: 100%;
@@ -94,8 +105,12 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .beerChoice .userSelection {
+    padding: 3%;
     width: 25%;
     text-align: center; }
+
+.beerDetails h2 {
+  font-size: 1.5rem; }
 
 #content {
   width: 85%;
@@ -168,17 +183,56 @@ input[type=radio]:checked + label {
       background: white;
       color: tomato; }
 
-div.mapAndListWrapper {
+.mapAndListwrapper {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
-          flex-direction: row; }
-  div.mapAndListWrapper .storeResults {
-    width: 50%; }
-  div.mapAndListWrapper .mapWrapper {
-    width: 50%; }
+          flex-direction: row;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .mapAndListwrapper .storeResults {
+    width: 30%; }
+  .mapAndListwrapper .mapWrapper {
+    width: 70%; }
+
+footer {
+  margin-top: 3rem;
+  background-color: #A6BABB;
+  padding: 2rem 0 3rem; }
+  footer p, footer a {
+    font-size: 1.2rem;
+    margin: 0;
+    color: white; }
+    footer p:visited, footer a:visited {
+      color: white; }
+
+.socialContainer {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 14%; }
+  .socialContainer i.fa {
+    font-size: 3rem; }
+
+.footerInfo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
