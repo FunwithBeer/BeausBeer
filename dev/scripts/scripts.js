@@ -52,34 +52,25 @@ app.displayBeer = function(beerInfo) {
 		var category = value.secondary_category;
 			if (value.style !== null) {
 				var style = $('<p>').text(value.style);
-				// $('<p>').text("N/A");
 			} else {
 			$('<p>').text('Delicious!');
-			// var style = $('<p>').text(value.style);
 			};
-			// var tags = value.tags;
+
 			if (value.tasting_note === null) {
 				$('<p>').text('Description coming soon!');
 			} else {
 			var tastingNotes = $('<p>').text(value.tasting_note);
 			};
 		app.productIDs = value.id;
-		var beerDetails = $('<div class="beerDetails">').append(beerName, packaging, price, tastingNotes, style);
+		var beerDetails = $('<div class="beerDetails">').append(packaging, price, style, tastingNotes);
 		var radioButton = $('<input name="beer" class="radios" type=\'radio\' value="' + value.id + '" id="' + value.id + '">');
 		var $userBeerSelection = $('<div class="userSelection">');
 		var $label = $('<label>').addClass('labels').attr('for',value.id);
 		$label.append(beerImage);
 		$userBeerSelection.append(radioButton, $label, beerDetails);
 		$('#beerChoice').append($userBeerSelection);
-		// $('#beerChoice input[type=radio]:checked').each(function(){
-		// 	$('#beerChoice label[for="' + value.id + '"]').css('border', 'solid 5px tomato');
-		// })
-		// app.getStores(app.productIDs);
 	});
 }
-// I wasn't able to use the variable name in my form stuff, but why?
-// If statements are not working, so n/a image won't show.
-// Apparently, the way I appended my image to the label was overwriting my if statement, so Ryan 
 
 
 app.getStores = function() {
@@ -88,7 +79,7 @@ app.getStores = function() {
 		dataType: 'jsonp',
 		method: 'GET',
 		data: {
-			per_page: 10,
+			per_page: 5,
 			access_key: app.apiKey,
 			lat: app.lat,
 			lon: app.lng,
@@ -99,6 +90,7 @@ app.getStores = function() {
 		}
 	}).then(function(storeOutput) {
 		console.log(storeOutput);
+		$('#storeResults').empty();
 		app.displayStores(storeOutput);
 	})
 }; 
@@ -115,8 +107,8 @@ app.displayStores = function(storeInfo) {
 		var lng = storeData.longitude;
 		var storeDetails = $('<div>').append(storeName, storeAddress, storePhone);
 		$('#storeResults').append(storeDetails)
-		// $('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone)
-		// $('#storeResults').append(storeData.address_line_1, storeData.city, storeData.telephone);
+
+		// Google map markers
 		var marker = new google.maps.Marker({
 			map: map,
 			position: {
@@ -151,8 +143,6 @@ app.getCurrentPosition = function(){
         app.lng = position.coords.longitude;
         app.position = {lat : app.lat, lng : app.lng};
         // console.log(app.position);
-        // app.findStore();
-        // app.loadMap();
        	var coordinates = new google.maps.LatLng(app.lat, app.lng);
 	    	var marker = new google.maps.Marker({
 		    	position: coordinates,
@@ -174,37 +164,16 @@ app.init = function() {
 	$('#userBeerSelection').on('submit', function(e) {
 		e.preventDefault();
 		app.beerSelected = $('input[name=beer]:checked').val();
-		// $('#beerChoice input[type="radio"]:checked').each(function(){
-		// 	$('#beerChoice label[for="' + this.id + '"]').css('border', 'solid 5px steelblue');
-		// });
+
+	$('html, body').animate({
+			scrollTop: $('#footer').offset().top}, 1500);
 
 		console.log(app.beerSelected);
 		app.getStores();
-		// app.productID = [];
-		// We need to grab the product ID Number on submit and push it into our app.productID
-		// for (i = 0; i < store)
 	});
 }
 
 $(function() {
 	app.init();
 });
-
-// app.getInventory = function() {
-// 	$.ajax({
-// 		url: app.inventoryUrl,
-// 		dataType: 'json',
-// 		method: 'GET',
-// 		data: {
-// 			access_key: app.apiKey,
-// 			product_id: 169334,
-// 			store_id: 10
-// 		}
-// 	}).then(function(inventoryOutput) {
-// 		// console.log(inventoryOutput);
-// 		for (item in beerInfo.result) {
-
-// 		}
-// 	})
-// };
 

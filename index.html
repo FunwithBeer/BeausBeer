@@ -48,8 +48,9 @@
 				<div class="beerResults">
 					<form action="" id="userBeerSelection">
 						<div class="formWrapper">
-							<div class="beerChoiceWrapper">
-								<div class="beerChoice" id="beerChoice"></div>
+							<div class="beerChoiceWrapper" data-role="content">
+								<div class="beerChoice" id="beerChoice" data-role="collapsible-set"> 
+								</div>
 							</div>
 							<div class="submitButton">
 								<input type="submit" value="Get your booze!">
@@ -66,7 +67,10 @@
 		<!-- beginning of map and store list section -->
 		<section class="mapAndList">
 			<div class="mapAndListwrapper">
-				<div id="storeResults" class="storeResults"></div>
+				<div class="storeResultsWrapper">
+					<h1></h1>
+					<div id="storeResults" class="storeResults"></div>
+				</div>
 				<div class="mapWrapper">
 					<div id="map"></div>
 				</div>
