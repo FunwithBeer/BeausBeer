@@ -101,12 +101,14 @@ app.displayStores = function(storeInfo) {
 	$.each(storeString, function(i, storeData) {
 		var storeName = $('<h2>').text(storeData.name);
 		var storeId = $('<p>').text(storeData.id);
-		var storeAddress = $('<p>').text(storeData.address_line_1 + storeData.city);
+		// var storeAddress = $('<p>').text(storeData.address_line_1 + storeData.city);
+		var storeAddress = $('<p>').text(storeData.address_line_1 + ', ' + storeData.city)
 		var storePhone = $('<p>').text(storeData.telephone);
 		var lat = storeData.latitude;
 		var lng = storeData.longitude;
-		var storeDetails = $('<div>').append(storeName, storeAddress, storePhone);
-		$('#storeResults').append(storeDetails)
+		var storeDetails = $('<div class="storeDetails">').append(storeName, storeAddress, storePhone);
+		$('.storeResultsTitle').text('Store Results');
+		$('#storeResults').append(storeDetails);
 
 		// Google map markers
 		var marker = new google.maps.Marker({
@@ -124,6 +126,12 @@ app.displayStores = function(storeInfo) {
     });
 		// console.log(storeName);
 		// console.log(storeAddress);
+		$('#map').show();
+		google.maps.event.trigger(document.getElementById('map'), 'resize');
+    google.maps.event.addListenerOnce(map, 'idle', function() {
+       google.maps.event.trigger(map, 'resize');
+       map.setCenter({lat:app.bandsIn2Lat,lng:app.bandsIn2Long});
+     });
 	});	
 }
 
@@ -133,6 +141,7 @@ function initMap() {
 			center: {lat: 43.7000, lng: -79.4000},
 	    	zoom: 12
 	});
+	$('#map').hide();
 }
 
 // get user location based on their current location
@@ -166,7 +175,7 @@ app.init = function() {
 		app.beerSelected = $('input[name=beer]:checked').val();
 
 	$('html, body').animate({
-			scrollTop: $('#footer').offset().top}, 1500);
+			scrollTop: $('#map').offset().top}, 1500);
 
 		console.log(app.beerSelected);
 		app.getStores();
