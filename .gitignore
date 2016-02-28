@@ -1,5 +1,5 @@
 *.pdf
 *.zip
-public/style/**/*.css
-public/script/*.js
+public/scripts/*.js
+public/styles/*.css
 node_modules
