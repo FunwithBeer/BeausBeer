@@ -62,7 +62,7 @@ app.displayBeer = function(beerInfo) {
 			var tastingNotes = $('<p>').text(value.tasting_note);
 			};
 		app.productIDs = value.id;
-		var beerDetails = $('<div class="beerDetails">').append(packaging, price, style, tastingNotes);
+		var beerDetails = $('<div class="beerDetails">').append(beerName,packaging, price, style, tastingNotes);
 		var radioButton = $('<input name="beer" class="radios" type=\'radio\' value="' + value.id + '" id="' + value.id + '">');
 		var $userBeerSelection = $('<div class="userSelection">');
 		var $label = $('<label>').addClass('labels').attr('for',value.id);
