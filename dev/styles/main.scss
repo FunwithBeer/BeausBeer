@@ -239,6 +239,7 @@ input[type=radio]:checked + label {
   flex-direction: row;
   justify-content: space-between;
   .storeResults {
+    padding-right: 2rem;
     h2{
     	font-size: 2.2rem;
     }
@@ -280,4 +281,50 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+@media (max-width:767px) {
+  .beerChoice {
+    .userSelection {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width:580px) {
+
+  .mapAndListwrapper {
+    flex-direction: column;
+    .storeResults {
+      width: 100%;
+      text-align: center;
+    }
+
+ .beerIntro {
+  display: flex;
+  flex-direction: column;
+  .beerIntroInfoDiv {
+    width: 100%;
+    padding-top: 2rem;
+    text-align: center;
+  }
+  .beerIntroImageDiv {
+    display: none;
+  }
+}
+
+  .footerInfo {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socialContainer {
+    padding-bottom: 4rem;
+    width: 40%;
+  }
+
+  .devCredits {
+    text-align: center;
+  }
 }
