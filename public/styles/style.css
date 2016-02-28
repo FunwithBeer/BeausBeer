@@ -35,10 +35,9 @@ header {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    vertical-align: bottom; }
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; }
     .headline .titleLine .wheat {
       width: 16%;
       padding-right: 2rem;
@@ -54,6 +53,17 @@ header {
   .headline div.divLine {
     height: 14rem;
     background-color: #A6BABB; }
+
+@media (max-width: 960px) {
+  .headline .titleLine {
+    left: 0;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse; }
+  .wheat {
+    width: 25%; }
+  h1 {
+    width: 75%; } }
 
 .beerIntro {
   display: -webkit-flex;
@@ -91,7 +101,8 @@ header {
   .beerGallery h3 {
     color: #532C19;
     font-size: 2.6rem;
-    padding-bottom: 3rem; }
+    padding-bottom: 3rem;
+    letter-spacing: 0.07rem; }
 
 .beerChoice {
   width: 100%;
@@ -106,11 +117,14 @@ header {
           justify-content: space-between; }
   .beerChoice .userSelection {
     padding: 3%;
-    width: 25%;
+    width: 33.3%;
     text-align: center; }
 
 .beerDetails h2 {
-  font-size: 1.5rem; }
+  font-size: 2rem; }
+
+.beerDetails p {
+  font-size: 1.4rem; }
 
 #content {
   width: 85%;
@@ -156,7 +170,7 @@ header {
   display: none; }
 
 input[type=radio]:checked + label {
-  border: 5px solid tomato; }
+  border: 5px solid #F6DFBC; }
 
 .submitButton {
   width: 100%;
@@ -168,20 +182,24 @@ input[type=radio]:checked + label {
           justify-content: center;
   position: relative;
   bottom: 0;
-  margin-top: 50px; }
+  margin-top: 50px;
+  padding: 25px; }
   .submitButton input[type=submit] {
-    background: tomato;
+    background: #C5A074;
     color: white;
     font-size: 2rem;
     font-weight: bold;
+    font-family: "Abril Fatface", cursive;
     padding: 20px;
-    border: 2px solid silver;
+    border: 2px solid #C5A074;
     border-radius: 10px;
     transition: all 0.35s;
-    outline: none; }
+    outline: none;
+    letter-spacing: .10rem;
+    text-transform: capitalize; }
     .submitButton input[type=submit]:hover {
       background: white;
-      color: tomato; }
+      color: #C5A074; }
 
 .mapAndListwrapper {
   display: -webkit-flex;
@@ -194,9 +212,15 @@ input[type=radio]:checked + label {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .mapAndListwrapper .storeResults {
-    width: 30%; }
+    width: 30%;
+    padding: 10px 20px; }
+    .mapAndListwrapper .storeResults h2 {
+      font-size: 2.2rem; }
+    .mapAndListwrapper .storeResults p {
+      font-size: 1.4rem; }
   .mapAndListwrapper .mapWrapper {
-    width: 70%; }
+    width: 70%;
+    padding: 20px; }
 
 footer {
   margin-top: 3rem;

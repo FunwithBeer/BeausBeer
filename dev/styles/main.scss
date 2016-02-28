@@ -52,8 +52,9 @@ header {
     left: -6rem;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    vertical-align: bottom;
+    // flex-direction: row;
+    flex-flow: row wrap;
+    // vertical-align: bottom;
     .wheat {
       width: 16%;
       padding-right: 2rem;
@@ -73,6 +74,19 @@ header {
     height: 14rem;
     background-color: $casper;
   }
+}
+
+@media (max-width: 960px){
+	.headline .titleLine{
+		left:0;
+		flex-direction: row-reverse;
+	}
+	.wheat{
+		width: 25%;
+	}
+	h1{
+		width: 75%;
+	}
 }
 
 .beerIntro {
@@ -112,6 +126,7 @@ header {
       color: $indianTan;
       font-size: 2.6rem;
       padding-bottom: 3rem;
+      letter-spacing: 0.07rem;
     }
 }
 
@@ -123,13 +138,17 @@ header {
   justify-content: space-between;
   .userSelection {
     padding: 3%;
-    width: 25%;
+    width: 33.3%;
     text-align: center;
   }
 }
 
 .beerDetails h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+
+.beerDetails p{
+	font-size: 1.4rem;
 }
 
 // img{
@@ -188,7 +207,7 @@ form {
 }
 
 input[type=radio]:checked + label {
-  border: 5px solid tomato;
+  border: 5px solid $dairyCream;
 }
 
 .submitButton {
@@ -199,20 +218,23 @@ input[type=radio]:checked + label {
   position: relative;
   bottom: 0; 
   margin-top: 50px;
+  padding: 25px;
   input[type=submit] {
-    background: tomato;
+    background: $caramel;
     color: white;
     font-size: 2rem;
     font-weight: bold;
+    font-family: $fatface;
     padding: 20px;
-    border: 2px solid silver;
+    border: 2px solid $caramel;
     border-radius: 10px;
     transition: all 0.35s;
     outline: none;
-
+		letter-spacing: .10rem;
+		text-transform: capitalize;
     &:hover {
       background: white;
-      color: tomato;
+      color: $caramel;
     }
   }
 }
@@ -223,9 +245,17 @@ input[type=radio]:checked + label {
   justify-content: space-between;
   .storeResults {
     width: 30%;
+    padding: 10px 20px;
+    h2{
+    	font-size: 2.2rem;
+    }
+    p{
+    	font-size: 1.4rem;
+    }
   }
   .mapWrapper {
     width: 70%;
+    padding: 20px;
   }
 }
 
