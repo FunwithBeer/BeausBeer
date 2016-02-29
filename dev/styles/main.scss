@@ -64,6 +64,7 @@ header {
       padding: 0;
       margin: 0;
       color: white;
+      // color: rgba(238, 238, 238, 0.95);
       font-family: $fatface;
       font-size: 9rem;
       font-weight: 400;
@@ -107,9 +108,10 @@ header {
       padding-right: 6rem;
     }
   }
-  .beerIntroImageDiv {
-    margin-left: 2rem;
-  }
+}
+
+.beerIntroImageDiv {
+  margin-left: 2rem;
 }
 
 .keyHole {
@@ -152,10 +154,6 @@ header {
 	font-size: 1.4rem;
 }
 
-// img{
-// 	width: 25%;
-// }
-
 #content {
   width: 85%;
   height: 100%;
@@ -175,7 +173,6 @@ form {
 }
 
 .beerChoiceWrapper {
-  // display: flex;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -239,18 +236,22 @@ input[type=radio]:checked + label {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .storeResults {
-    padding-right: 2rem;
-    h2{
-    	font-size: 2.2rem;
-    }
-    p{
-    	font-size: 1.4rem;
-    }
-  }
   .mapWrapper {
     width: 100%;
     padding: 20px;
+  }
+}
+
+.storeResultsTitle {
+  font-size: 2.2rem;
+}
+
+.storeResults .storeDetails {
+  h2 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1.2rem;
   }
 }
 
@@ -268,6 +269,10 @@ footer {
   }
 }
 
+.devCredits a:hover {
+  color: rgba(238, 238, 238, 0.75);
+}
+
 .socialContainer {
   display: flex;
   flex-direction: row;
@@ -275,14 +280,30 @@ footer {
   width: 14%;
   i.fa {
     font-size: 3rem;
+    &:hover {
+      color: rgba(238, 238, 238, 0.75);
+    }
   }
 }
+
+
 
 .footerInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
+@media (max-width: 1000px) {
+
+  .wrapper .beerIntro .beerIntroImageDiv {
+    margin-left: 0;
+    position: relative;
+    top: 50px;
+  }
+}
+
+
 
 @media (max-width:767px) {
   .beerChoice {
@@ -345,6 +366,21 @@ footer {
       width: 100%;
       text-align: center;
     }
+<<<<<<< HEAD
+=======
+  }
+
+ .beerIntro {
+  display: flex;
+  flex-direction: column;
+  .beerIntroInfoDiv {
+    width: 100%;
+    padding-top: 2rem;
+    text-align: center;
+  }
+  .beerIntroImageDiv {
+    display: none;
+>>>>>>> daff541a340a3868c7c3e3facf01cef8c957cbfc
   }
 
     .footerInfo {

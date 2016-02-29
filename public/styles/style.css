@@ -76,8 +76,9 @@ header {
     .beerIntro .beerIntroInfoDiv p {
       font-size: 1.8rem;
       padding-right: 6rem; }
-  .beerIntro .beerIntroImageDiv {
-    margin-left: 2rem; }
+
+.beerIntroImageDiv {
+  margin-left: 2rem; }
 
 .keyHole {
   padding: 0;
@@ -202,15 +203,27 @@ input[type=radio]:checked + label {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between; }
+<<<<<<< HEAD
   .mapAndListwrapper .storeResults {
     padding-right: 2rem; }
     .mapAndListwrapper .storeResults h2 {
       font-size: 2.2rem; }
     .mapAndListwrapper .storeResults p {
       font-size: 1.4rem; }
+=======
+>>>>>>> daff541a340a3868c7c3e3facf01cef8c957cbfc
   .mapAndListwrapper .mapWrapper {
     width: 100%;
     padding: 20px; }
+
+.storeResultsTitle {
+  font-size: 2.2rem; }
+
+.storeResults .storeDetails h2 {
+  font-size: 1.5rem; }
+
+.storeResults .storeDetails p {
+  font-size: 1.2rem; }
 
 footer {
   margin-top: 3rem;
@@ -222,6 +235,9 @@ footer {
     color: white; }
     footer p:visited, footer a:visited {
       color: white; }
+
+.devCredits a:hover {
+  color: rgba(238, 238, 238, 0.75); }
 
 .socialContainer {
   display: -webkit-flex;
@@ -236,6 +252,8 @@ footer {
   width: 14%; }
   .socialContainer i.fa {
     font-size: 3rem; }
+    .socialContainer i.fa:hover {
+      color: rgba(238, 238, 238, 0.75); }
 
 .footerInfo {
   display: -webkit-flex;
@@ -247,6 +265,12 @@ footer {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between; }
+
+@media (max-width: 1000px) {
+  .wrapper .beerIntro .beerIntroImageDiv {
+    margin-left: 0;
+    position: relative;
+    top: 50px; } }
 
 @media (max-width: 767px) {
   .beerChoice .userSelection {
@@ -297,6 +321,22 @@ footer {
     .mapAndListwrapper .storeResults {
       width: 100%;
       text-align: center; }
+<<<<<<< HEAD
+=======
+  .beerIntro {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .beerIntro .beerIntroInfoDiv {
+      width: 100%;
+      padding-top: 2rem;
+      text-align: center; }
+    .beerIntro .beerIntroImageDiv {
+      display: none; }
+>>>>>>> daff541a340a3868c7c3e3facf01cef8c957cbfc
   .footerInfo {
     -webkit-flex-direction: column-reverse;
         -ms-flex-direction: column-reverse;
