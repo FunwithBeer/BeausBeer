@@ -20,16 +20,17 @@ header {
   background-image: url(/public/images/barrel.jpg);
   background-size: cover;
   background-attachment: fixed;
-  -webkit-filter: FlipH;
-          filter: FlipH;
-  height: 100vh; }
+  height: 100vh;
+  position: relative; }
 
 .headline {
   padding-top: 54rem;
-  position: relative; }
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
   .headline .titleLine {
     position: absolute;
-    bottom: -4.6rem;
+    bottom: -2.6rem;
     left: -6rem;
     width: 100%;
     display: -webkit-flex;
@@ -49,21 +50,11 @@ header {
       font-family: "Abril Fatface", cursive;
       font-size: 9rem;
       font-weight: 400;
-      letter-spacing: 0.3rem; }
-  .headline div.divLine {
+      letter-spacing: 0.3rem;
+      line-height: 8rem; }
+  .headline .divLine {
     height: 14rem;
     background-color: #A6BABB; }
-
-@media (max-width: 960px) {
-  .headline .titleLine {
-    left: 0;
-    -webkit-flex-direction: row-reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse; }
-  .wheat {
-    width: 25%; }
-  h1 {
-    width: 75%; } }
 
 .beerIntro {
   display: -webkit-flex;
@@ -212,6 +203,15 @@ input[type=radio]:checked + label {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between; }
+<<<<<<< HEAD
+  .mapAndListwrapper .storeResults {
+    padding-right: 2rem; }
+    .mapAndListwrapper .storeResults h2 {
+      font-size: 2.2rem; }
+    .mapAndListwrapper .storeResults p {
+      font-size: 1.4rem; }
+=======
+>>>>>>> daff541a340a3868c7c3e3facf01cef8c957cbfc
   .mapAndListwrapper .mapWrapper {
     width: 100%;
     padding: 20px; }
@@ -277,6 +277,43 @@ footer {
     width: 100%; } }
 
 @media (max-width: 580px) {
+  .headline .titleLine {
+    left: 1rem; }
+    .headline .titleLine .wheat {
+      width: 100%;
+      padding-bottom: 2rem;
+      margin-left: -16rem; }
+    .headline .titleLine h1 {
+      padding: 0;
+      margin: 0;
+      color: white;
+      font-family: "Abril Fatface", cursive;
+      font-size: 9rem;
+      font-weight: 400;
+      letter-spacing: 0.3rem;
+      line-height: 8rem; }
+  .headline .divLine {
+    height: 14rem;
+    background-color: #A6BABB; }
+  .beerIntro {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 4rem 2rem; }
+    .beerIntro .beerIntroInfoDiv {
+      width: 100%;
+      padding: 2rem 0;
+      text-align: center; }
+      .beerIntro .beerIntroInfoDiv h2 {
+        margin-top: 0; }
+      .beerIntro .beerIntroInfoDiv p {
+        margin: 0;
+        padding: 0; }
+    .beerIntro .beerIntroImageDiv {
+      display: none; }
   .mapAndListwrapper {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
@@ -284,6 +321,8 @@ footer {
     .mapAndListwrapper .storeResults {
       width: 100%;
       text-align: center; }
+<<<<<<< HEAD
+=======
   .beerIntro {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -297,6 +336,7 @@ footer {
       text-align: center; }
     .beerIntro .beerIntroImageDiv {
       display: none; }
+>>>>>>> daff541a340a3868c7c3e3facf01cef8c957cbfc
   .footerInfo {
     -webkit-flex-direction: column-reverse;
         -ms-flex-direction: column-reverse;
