@@ -39,22 +39,22 @@ header {
   background-image: url(/public/images/barrel.jpg);
   background-size: cover;
   background-attachment: fixed;
-  filter: FlipH;
   height: 100vh;
+  position: relative;
   }
 
 .headline {
   padding-top: 54rem;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   .titleLine {
     position: absolute;
-    bottom: -4.6rem;
+    bottom: -2.6rem;
     left: -6rem;
     width: 100%;
     display: flex;
-    // flex-direction: row;
     flex-flow: row wrap;
-    // vertical-align: bottom;
     .wheat {
       width: 16%;
       padding-right: 2rem;
@@ -68,26 +68,27 @@ header {
       font-size: 9rem;
       font-weight: 400;
       letter-spacing: 0.3rem;
+      line-height: 8rem;
     }
   }
-  div.divLine {
+  .divLine {
     height: 14rem;
     background-color: $casper;
   }
 }
 
-@media (max-width: 960px){
-	.headline .titleLine{
-		left:0;
-		flex-direction: row-reverse;
-	}
-	.wheat{
-		width: 25%;
-	}
-	h1{
-		width: 75%;
-	}
-}
+// @media (max-width: 960px){
+// 	.headline .titleLine{
+// 		left:0;
+// 		flex-direction: row-reverse;
+// 	}
+// 	.wheat{
+// 		width: 25%;
+// 	}
+// 	h1{
+// 		width: 75%;
+// 	}
+// }
 
 .beerIntro {
   display: flex;
@@ -293,38 +294,71 @@ footer {
 
 @media (max-width:580px) {
 
+  .headline {
+    .titleLine {
+      left: 1rem;
+      .wheat {
+        width: 100%;
+        padding-bottom: 2rem;
+        margin-left: -16rem;
+      }
+      h1 {
+        padding: 0;
+        margin: 0;
+        color: white;
+        font-family: $fatface;
+        font-size: 9rem;
+        font-weight: 400;
+        letter-spacing: 0.3rem;
+        line-height: 8rem;
+      }
+  }
+  .divLine {
+    height: 14rem;
+    background-color: $casper;
+  }
+}
+   .beerIntro {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    .beerIntroInfoDiv {
+      width: 100%;
+      padding: 2rem 0;
+      text-align: center;
+      h2 {
+        margin-top: 0;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .beerIntroImageDiv {
+      display: none;
+    }
+  }
+  
   .mapAndListwrapper {
     flex-direction: column;
     .storeResults {
       width: 100%;
       text-align: center;
     }
-
- .beerIntro {
-  display: flex;
-  flex-direction: column;
-  .beerIntroInfoDiv {
-    width: 100%;
-    padding-top: 2rem;
-    text-align: center;
-  }
-  .beerIntroImageDiv {
-    display: none;
-  }
-}
-
-  .footerInfo {
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
   }
 
-  .socialContainer {
-    padding-bottom: 4rem;
-    width: 40%;
-  }
+    .footerInfo {
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+    }
 
-  .devCredits {
-    text-align: center;
-  }
+    .socialContainer {
+      padding-bottom: 4rem;
+      width: 40%;
+    }
+
+    .devCredits {
+      text-align: center;
+    }
 }
